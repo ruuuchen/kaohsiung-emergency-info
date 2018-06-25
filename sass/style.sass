@@ -1,0 +1,141 @@
+// 顏色管理
+$black_color: #334252
+$blue_color: #3dc7be
+$yellow_color: #f9a828
+$grey_color: #f2f2f2
+$orange_color: #f75940
+
+* 
+  // border: solid 1px red
+  font-family: "微軟正黑體"
+  color: $black_color
+  position: relative
+  letter-spacing: 1.2px
+  vertical-align: top
+
+html,body
+  margin: 0px
+  padding: 0px
+  height: 100%
+  width: 100%
+  
+body
+  background-color: $grey_color
+  
+section
+  padding: 50px 30px 
+  max-width: 1024px
+  margin: 0px auto
+  
+// 標題字  
+.page-header
+  padding-bottom: 5px
+  border-bottom: solid 1px black
+  margin-bottom: 30px 
+    
+// 頁面    
+#content
+  width: 100%
+  height: calc(100% - 50px)
+  
+// 導覽列  
+.navstyle
+  background-color: $orange_color
+  max-width: 1024px
+  margin: 0px auto
+  padding: 10px 45px
+
+.navscroll 
+  background-color: rgba($orange_color,0.95)
+  
+.title   
+  & *
+    vertical-align: middle
+    color: white
+    font-size: 22px
+    padding: 0px 2px
+
+// 首頁   
+#cover
+  width: 100%
+  height: 100%
+  background-color: black
+  background-image: url(https://c1.staticflickr.com/1/610/32656636896_6ebd4315af_b.jpg)
+  background-size: cover
+  filter: contrast(150%) grayscale(70%)
+  & h2
+    display: inline-block
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translateX(-50%) translateY(-50%)
+    color: white
+    text-align: center
+    
+.coverscroll
+  opacity: 0.8
+  
+a.block
+  display: none
+  width: 60px
+  height: 60px
+  font-size: 40px 
+  text-align: center
+  background-color: $blue_color
+  color: white
+  text-decoration: none
+  position: absolute
+  left: 50%
+  top: 65%
+  transform: translateX(-50%) translateY(-50%)
+  transition-duration: 0.2s
+  animation: ani 2s ease-in-out 1s infinite
+  
+// 災情地圖
+section#map_area
+  padding-top: 100px
+  display: none
+#map    
+  width: 100%
+  min-width: 280px
+  height: 450px
+  
+// 災情資訊  
+section#info_area 
+  display: none
+  & .table
+      font-size: 14px
+    
+// 災情通報  
+section#contact_area 
+  display: none
+  padding-bottom: 100px
+  & .list-group
+      font-size: 14px
+      padding: 15px 0px
+  & .badge
+      background-color: $blue_color
+    
+// 頁尾  
+footer
+  background-color: $orange_color
+  text-align: center
+  padding: 10px
+  height: 50px
+  & a  
+    color: white
+    font-size: 12px
+    transition-duration: 0.2s
+    &:hover
+      color: lighten($black_color,60%)
+      text-decoration: none
+
+// 自定義動畫    
+@keyframes ani
+  0%
+    background-color: $blue_color
+    top: 65%
+  100%
+    background-color: transparent
+    color: transparent
+    top: 70%
