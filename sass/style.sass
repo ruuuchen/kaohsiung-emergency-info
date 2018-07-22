@@ -5,7 +5,7 @@ $yellow_color: #f9a828
 $grey_color: #f2f2f2
 $orange_color: #f75940
 
-* 
+*
   // border: solid 1px red
   font-family: "微軟正黑體"
   color: $black_color
@@ -18,44 +18,44 @@ html,body
   padding: 0px
   height: 100%
   width: 100%
-  
+
 body
   background-color: $grey_color
-  
+
 section
-  padding: 50px 30px 
+  padding: 50px 30px
   max-width: 1024px
   margin: 0px auto
-  
-// 標題字  
+
+// 標題字
 .page-header
   padding-bottom: 5px
   border-bottom: solid 1px black
-  margin-bottom: 30px 
-    
-// 頁面    
+  margin-bottom: 30px
+
+// 頁面
 #content
   width: 100%
   height: calc(100% - 50px)
-  
-// 導覽列  
+
+// 導覽列
 .navstyle
   background-color: $orange_color
   max-width: 1024px
   margin: 0px auto
   padding: 10px 45px
 
-.navscroll 
+.navscroll
   background-color: rgba($orange_color,0.95)
-  
-.title   
+
+.title
   & *
     vertical-align: middle
     color: white
     font-size: 22px
     padding: 0px 2px
 
-// 首頁   
+// 首頁
 #cover
   width: 100%
   height: 100%
@@ -71,15 +71,15 @@ section
     transform: translateX(-50%) translateY(-50%)
     color: white
     text-align: center
-    
+
 .coverscroll
   opacity: 0.8
-  
+
 a.block
   display: none
   width: 60px
   height: 60px
-  font-size: 40px 
+  font-size: 40px
   text-align: center
   background-color: $blue_color
   color: white
@@ -90,24 +90,24 @@ a.block
   transform: translateX(-50%) translateY(-50%)
   transition-duration: 0.2s
   animation: ani 2s ease-in-out 1s infinite
-  
+
 // 災情地圖
 section#map_area
   padding-top: 100px
   display: none
-#map    
+#map
   width: 100%
   min-width: 280px
   height: 450px
-  
-// 災情資訊  
-section#info_area 
+
+// 災情資訊
+section#info_area
   display: none
   & .table
       font-size: 14px
-    
-// 災情通報  
-section#contact_area 
+
+// 災情通報
+section#contact_area
   display: none
   padding-bottom: 100px
   & .list-group
@@ -115,14 +115,14 @@ section#contact_area
       padding: 15px 0px
   & .badge
       background-color: $blue_color
-    
-// 頁尾  
+
+// 頁尾
 footer
   background-color: $orange_color
   text-align: center
   padding: 10px
   height: 50px
-  & a  
+  & a
     color: white
     font-size: 12px
     transition-duration: 0.2s
@@ -130,7 +130,7 @@ footer
       color: lighten($black_color,60%)
       text-decoration: none
 
-// 自定義動畫    
+// 自定義動畫
 @keyframes ani
   0%
     background-color: $blue_color
