@@ -1,100 +1,118 @@
-#content
-  nav.navbar.fixed-top.justify-content-between.navstyle
-    a.navbar-brand 
-      .title 
-        i.fas.fa-exclamation-triangle
-        span 高雄防災通
-    form.form-inline
-      select.navbar-text#jsdata
-        option(value="" disabled selected) --請選擇行政區--
-        option(value="全區") 全區最新動態
-        option(value="" disabled) -- 高雄市區 --
-        option(value="楠梓區") 楠梓區
-        option(value="左營區") 左營區
-        option(value="鼓山區") 鼓山區
-        option(value="三民區") 三民區
-        option(value="鹽埕區") 鹽埕區
-        option(value="前金區") 前金區
-        option(value="新興區") 新興區
-        option(value="苓雅區") 苓雅區
-        option(value="前鎮區") 前鎮區
-        option(value="旗津區") 旗津區
-        option(value="小港區") 小港區
-        option(value="" disabled) -- 鳳山地區 --
-        option(value="鳳山區") 鳳山區
-        option(value="大寮區") 大寮區
-        option(value="鳥松區") 鳥松區
-        option(value="林園區") 林園區
-        option(value="仁武區") 仁武區
-        option(value="大樹區") 大樹區
-        option(value="大社區") 大社區
-        option(value="" disabled) -- 岡山地區 --
-        option(value="岡山區") 岡山區 
-        option(value="路竹區") 路竹區
-        option(value="橋頭區") 橋頭區
-        option(value="梓官區") 梓官區
-        option(value="彌陀區") 彌陀區 
-        option(value="永安區") 永安區 
-        option(value="燕巢區") 燕巢區 
-        option(value="田寮區") 田寮區  
-        option(value="阿蓮區") 阿蓮區
-        option(value="茄萣區") 茄萣區
-        option(value="湖內區") 湖內區 
-        option(value="" disabled) -- 旗山地區 -- 
-        option(value="旗山區") 旗山區
-        option(value="美濃區") 美濃區
-        option(value="內門區") 內門區
-        option(value="杉林區") 杉林區     
-        option(value="甲仙區") 甲仙區 
-        option(value="六龜區") 六龜區 
-        option(value="" disabled) -- 原住民區 -- 
-        option(value="茂林區") 茂林區
-        option(value="那瑪夏區") 那瑪夏區 
-        option(value="桃源區") 桃源區  
-  #cover
-    h2 即時的市政資訊與服務
-    a.block(href="#map_area") ↓
-  section#map_area
-    .container
-      h5.page-header 即時災情地圖
-      #map
-  section#info_area 
-    .container
-      h5.page-header 災情詳細資訊
-      .card-columns
-        #js-tbody     
-  section#contact_area 
-    .container
-      h5.page-header 我有其他災情要通報
-      .row
-        .col-md-12
-          ul.list-group
-            li.list-group-item.list-group-item-secondary 全市主要管道
-            li.list-group-item.list-group-item-action.list-group-item-action.d-flex.justify-content-between.align-items-center 警察局 110 
-              span.badge.badge-primary.badge-pill ★
-            li.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center 消防局 119
-              span.badge.badge-primary.badge-pill ★
-            li.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center 市民服務電話 1999
-              span.badge.badge-primary.badge-pill ★
-            li.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center 市災害應變中心 (07)8224567
-              span.badge.badge-primary.badge-pill ★
-        .col-md-3
-          ul.list-group
-            li.list-group-item.list-group-item-secondary 高雄市區
-            li.list-group-item.list-group-item-action(v-for="item in items01") {{item.centername}} {{item.tel}}
-        .col-md-3
-          ul.list-group   
-            li.list-group-item.list-group-item-secondary 鳳山地區
-            li.list-group-item.list-group-item-action(v-for="item in items02") {{item.centername}} {{item.tel}}
-        .col-md-3
-          ul.list-group
-            li.list-group-item.list-group-item-secondary 岡山地區
-            li.list-group-item.list-group-item-action(v-for="item in items03") {{item.centername}} {{item.tel}}
-        .col-md-3
-          ul.list-group
-            li.list-group-item.list-group-item-secondary 旗山地區與其他山區
-            li.list-group-item.list-group-item-action(v-for="item in items04") {{item.centername}} {{item.tel}}
+<!DOCTYPE html>
+html(lang="en")
+head
+  meta(charset="UTF-8")
+  title Emergency Information n Kaohsiung
 
-footer.fixed-bottom
-  .container
-    a(href='https://data.kcg.gov.tw/', target='_blank') 資料來源：高雄市政府 資料開放平台 
+  link(rel="stylesheet prefetch", href="https://use.fontawesome.com/releases/v5.0.12/css/all.css")
+  link(rel="stylesheet prefetch", href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css")
+  link(rel="stylesheet", href="css/style.css")
+
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASYrmvf8Pg0awTHB4UQxjjymENhg717Qk&callback=initMap")
+
+body
+  #content
+    nav.navbar.fixed-top.justify-content-between.navstyle
+      a.navbar-brand
+        .title
+          i.fas.fa-exclamation-triangle
+          span 高雄防災通
+      form.form-inline
+        select.navbar-text#jsdata
+          option(value="" disabled selected) --請選擇行政區--
+          option(value="全區") 全區最新動態
+          option(value="" disabled) -- 高雄市區 --
+          option(value="楠梓區") 楠梓區
+          option(value="左營區") 左營區
+          option(value="鼓山區") 鼓山區
+          option(value="三民區") 三民區
+          option(value="鹽埕區") 鹽埕區
+          option(value="前金區") 前金區
+          option(value="新興區") 新興區
+          option(value="苓雅區") 苓雅區
+          option(value="前鎮區") 前鎮區
+          option(value="旗津區") 旗津區
+          option(value="小港區") 小港區
+          option(value="" disabled) -- 鳳山地區 --
+          option(value="鳳山區") 鳳山區
+          option(value="大寮區") 大寮區
+          option(value="鳥松區") 鳥松區
+          option(value="林園區") 林園區
+          option(value="仁武區") 仁武區
+          option(value="大樹區") 大樹區
+          option(value="大社區") 大社區
+          option(value="" disabled) -- 岡山地區 --
+          option(value="岡山區") 岡山區
+          option(value="路竹區") 路竹區
+          option(value="橋頭區") 橋頭區
+          option(value="梓官區") 梓官區
+          option(value="彌陀區") 彌陀區
+          option(value="永安區") 永安區
+          option(value="燕巢區") 燕巢區
+          option(value="田寮區") 田寮區
+          option(value="阿蓮區") 阿蓮區
+          option(value="茄萣區") 茄萣區
+          option(value="湖內區") 湖內區
+          option(value="" disabled) -- 旗山地區 --
+          option(value="旗山區") 旗山區
+          option(value="美濃區") 美濃區
+          option(value="內門區") 內門區
+          option(value="杉林區") 杉林區
+          option(value="甲仙區") 甲仙區
+          option(value="六龜區") 六龜區
+          option(value="" disabled) -- 原住民區 --
+          option(value="茂林區") 茂林區
+          option(value="那瑪夏區") 那瑪夏區
+          option(value="桃源區") 桃源區
+    #cover
+      h2 即時的市政資訊與服務
+      a.block(href="#map_area") ↓
+    section#map_area
+      .container
+        h5.page-header 即時災情地圖
+        #map
+    section#info_area
+      .container
+        h5.page-header 災情詳細資訊
+        .card-columns
+          #js-tbody
+    section#contact_area
+      .container
+        h5.page-header 我有其他災情要通報
+        .row
+          .col-md-12
+            ul.list-group
+              li.list-group-item.list-group-item-secondary 全市主要管道
+              li.list-group-item.list-group-item-action.list-group-item-action.d-flex.justify-content-between.align-items-center 警察局 110
+                span.badge.badge-primary.badge-pill ★
+              li.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center 消防局 119
+                span.badge.badge-primary.badge-pill ★
+              li.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center 市民服務電話 1999
+                span.badge.badge-primary.badge-pill ★
+              li.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center 市災害應變中心 (07)8224567
+                span.badge.badge-primary.badge-pill ★
+          .col-md-3
+            ul.list-group
+              li.list-group-item.list-group-item-secondary 高雄市區
+              li.list-group-item.list-group-item-action(v-for="item in items01") {{item.centername}} {{item.tel}}
+          .col-md-3
+            ul.list-group
+              li.list-group-item.list-group-item-secondary 鳳山地區
+              li.list-group-item.list-group-item-action(v-for="item in items02") {{item.centername}} {{item.tel}}
+          .col-md-3
+            ul.list-group
+              li.list-group-item.list-group-item-secondary 岡山地區
+              li.list-group-item.list-group-item-action(v-for="item in items03") {{item.centername}} {{item.tel}}
+          .col-md-3
+            ul.list-group
+              li.list-group-item.list-group-item-secondary 旗山地區與其他山區
+              li.list-group-item.list-group-item-action(v-for="item in items04") {{item.centername}} {{item.tel}}
+
+  footer.fixed-bottom
+    .container
+      a(href='https://data.kcg.gov.tw/', target='_blank') 資料來源：高雄市政府 資料開放平台
+
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js")
+  script(src="js/index.js")
