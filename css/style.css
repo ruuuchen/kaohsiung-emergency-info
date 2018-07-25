@@ -1,6 +1,5 @@
 @charset "UTF-8";
 * {
-  border: solid 1px red;
   font-family: "微軟正黑體";
   color: #334252;
   position: relative;
@@ -51,15 +50,12 @@ section {
   background-color: black;
   background-image: url(https://c1.staticflickr.com/1/610/32656636896_6ebd4315af_b.jpg);
   background-size: cover;
-  -webkit-filter: contrast(150%) grayscale(70%);
   filter: contrast(150%) grayscale(70%); }
   #cover h2 {
     display: inline-block;
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    -ms-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     color: white;
     text-align: center; }
@@ -79,13 +75,8 @@ a.block {
   position: absolute;
   left: 50%;
   top: 65%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  -webkit-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  -webkit-animation: ani 2s ease-in-out 1s infinite;
   animation: ani 2s ease-in-out 1s infinite; }
 
 section#map_area {
@@ -118,21 +109,10 @@ footer {
   footer a {
     color: white;
     font-size: 12px;
-    -webkit-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
     transition-duration: 0.2s; }
     footer a:hover {
       color: #d3dbe4;
       text-decoration: none; }
-
-@-webkit-keyframes ani {
-  0% {
-    background-color: #3dc7be;
-    top: 65%; }
-  100% {
-    background-color: transparent;
-    color: transparent;
-    top: 70%; } }
 
 @keyframes ani {
   0% {
@@ -142,3 +122,19 @@ footer {
     background-color: transparent;
     color: transparent;
     top: 70%; } }
+@media screen and (max-width: 480px) {
+  .navstyle {
+    padding: 10px 15px; }
+
+  .title * {
+    font-size: 16px; }
+
+  select {
+    width: 135px;
+    height: 34px;
+    font-size: 12px; }
+
+  #cover h2 {
+    font-size: 28px; } }
+
+/*# sourceMappingURL=style.css.map */
