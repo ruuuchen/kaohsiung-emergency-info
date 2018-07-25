@@ -14,18 +14,18 @@ var vm1=new Vue({
     items02: cityinfos.data02,
     items03: cityinfos.data03,
     items04: cityinfos.data04,
-  }  
+  }
 });
 
 $(window).scroll(function(e){
   if ($(window).scrollTop()<=0){
     $(".navbar").removeClass("navscroll");
     $("#cover").removeClass("coverscroll");
-  }    
+  }
   else{
     $(".navbar").addClass("navscroll");
     $("#cover").addClass("coverscroll");
-  } 
+  }
 });
 
 
@@ -60,7 +60,7 @@ $(document).ready(function(){
             var myoptions={
               zoom: 10,
               center: location
-            };          
+            };
           }
         }
         // 創造地圖
@@ -76,7 +76,7 @@ $(document).ready(function(){
             var onclickjs="showInfo(map, marker["+i+"])";
             var result="<div class='card'><div class='card-body'><span class='badge badge-secondary badge-warning'>"+status+"</span><span class='badge badge-light'>"+name+"</span><hr/><span class='badge badge-primary'>"+area+"</span><h5 class='card-title'>"+address+"</h5><p class='card-text'>"+description+"</p></div><div class='card-footer'><small class='text-muted'>反應日期："+time+"</small><br/><small class='text-muted'>承辦機關："+department+"</small></div>";
             var allresult="請選擇單一行政區以查看詳情。"
-            
+
             // 區域選擇後資料生成
             if($("#jsdata").val()==area){
               $("#js-tbody").append(result);
@@ -86,21 +86,22 @@ $(document).ready(function(){
                 map: map,
                 title: name, address
               });
-              google.maps.event.addListener(marker[i], "click", function(){ 
+              google.maps.event.addListener(marker[i], "click", function(){
                 showInfo(map, this);
               });
-            } 
+            }
             else if($("#jsdata").val()=="全區"){
               $(".card-columns").text(allresult);
               marker[i]=new google.maps.Marker({
                 position: new google.maps.LatLng(obj[i].Lat_, obj[i].Lng_),
                 map: map,
-                title: name, address  
+                title: name, address
               });
-              google.maps.event.addListener(marker[i], "click", function(){ 
+              google.maps.event.addListener(marker[i], "click", function(){
                 showInfo(map, this);
-              });  
+              });
             }
+
             // 資訊視窗
             showInfo=function(mapobj, markerobj){
               infowindow.setContent(infos(markerobj));
@@ -112,7 +113,7 @@ $(document).ready(function(){
               return html;
             }
           }
-        } 
-    }); 
-  }); 
+        }
+    });
+  });
 });

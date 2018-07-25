@@ -1,5 +1,6 @@
 @charset "UTF-8";
 * {
+  border: solid 1px red;
   font-family: "微軟正黑體";
   color: #334252;
   position: relative;
@@ -93,7 +94,6 @@ section#map_area {
 
 #map {
   width: 100%;
-  min-width: 280px;
   height: 450px; }
 
 section#info_area {
